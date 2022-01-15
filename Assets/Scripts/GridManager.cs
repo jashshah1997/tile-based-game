@@ -18,10 +18,10 @@ public class GridManager : MonoBehaviour
 
     void Start()
     {
-        GenerateGrid();
+        m_tiles = new Dictionary<Vector2, Tile>();
     }
 
-    void GenerateGrid()
+    public void GenerateGrid()
     {
         m_tiles = new Dictionary<Vector2, Tile>();
         for (int x = 0; x < m_width; x++)
@@ -66,6 +66,15 @@ public class GridManager : MonoBehaviour
         }
     }
     
+    public void destroyGrid()
+    {
+        foreach (KeyValuePair<Vector2, Tile> pair in m_tiles)
+        {
+            Destroy(pair.Value.gameObject);
+        }
+        m_tiles.Clear();
+    }
+
     bool isGoldNearby(Vector2 index)
     {
         int x = (int)index.x;
@@ -148,4 +157,6 @@ public class GridManager : MonoBehaviour
         }
         return score;
     }
+
+
 }
