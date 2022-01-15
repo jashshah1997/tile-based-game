@@ -32,7 +32,7 @@ public class GridManager : MonoBehaviour
                 spawnedTile.name = $"Tile {x} {y}";
 
                 var isOffset = (x % 2 == 0 && y % 2 != 0) || (x % 2 != 0 && y % 2 == 0);
-                spawnedTile.Init(isOffset);
+                spawnedTile.Init(isOffset, x, y);
 
 
                 m_tiles[new Vector2(x, y)] = spawnedTile;
@@ -113,9 +113,39 @@ public class GridManager : MonoBehaviour
         }
     }
 
-    public Tile GetTileAtPosition(Vector2 pos)
+    public void revealNearbyTiles(int x, int y)
     {
-        if (m_tiles.TryGetValue(pos, out var tile)) return tile;
-        return null;
+        Debug.Log("Revealing nearby tiles.");
+        for (int off_x = -1; off_x <= 1; off_x++)
+        {
+            for (int off_y = -1; off_y <= 1; off_y++)
+            {
+                Vector2 key = new Vector2(x + off_x, y + off_y);
+
+                if (m_tiles.ContainsKey(key)) m_tiles[key].revealTile();
+            }
+        }
+    }
+
+    public int extractTile(int x, int y)
+    {
+        Debug.Log("Extracting tile");
+        int score = 0;
+        for (int off_x = -2; off_x <= 2; off_x++)
+        {
+            for (int off_y = -2; off_y <= 2; off_y++)
+            {
+                Vector2 key = new Vector2(x + off_x, y + off_y);
+
+                // Fully extract central tile
+                if (off_x == 0 && off_y == 0)
+                {
+                    score += m_tiles[key].extractTile(true);
+                    continue;
+                }
+                if (m_tiles.ContainsKey(key)) score += m_tiles[key].extractTile();
+            }
+        }
+        return score;
     }
 }

@@ -791,6 +791,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1ba744cbfa95214b9ca9cac0ded5cce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScanAttempts: 6
+  ExtractAttempts: 3
 --- !u!1 &1242117817
 GameObject:
   m_ObjectHideFlags: 0
@@ -1060,6 +1062,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_width: 32
   m_height: 32
-  m_goldPiles: 10
+  m_maxGoldPiles: 15
   m_tilePrefab: {fileID: 7053164001144004953, guid: 1a75cf146b57d6948ae034a46b33e35f, type: 3}
   m_cam: {fileID: 519420032}
