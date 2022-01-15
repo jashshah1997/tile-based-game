@@ -180,7 +180,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_baseColor: {r: 0.09029898, g: 0.8396226, b: 0.20754069, a: 1}
-  m_offsetColor: {r: 0.4498932, g: 0.7075472, b: 0.51508534, a: 1}
+  m_offsetColor: {r: 0.21238874, g: 0.7169812, b: 0.33368498, a: 1}
+  m_fullColor: {r: 0.7830189, g: 0.3802226, b: 0.0915984, a: 1}
+  m_halfColor: {r: 0.7830189, g: 0.6790615, b: 0.039889578, a: 1}
+  m_qurterColor: {r: 0.84537697, g: 0.9433962, b: 0.22605905, a: 1}
+  m_noneColor: {r: 0.5660378, g: 0.5428934, b: 0.44535425, a: 1}
   m_renderer: {fileID: 7053164001144004955}
   m_highlight: {fileID: 4417349275335844804}
 --- !u!61 &6215621710264123945
